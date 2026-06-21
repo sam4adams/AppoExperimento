@@ -12,6 +12,7 @@ export interface Denomination {
   valueLabel: string    // e.g. "10¢"
   metalColor: 'gold' | 'silver' | 'copper' | 'nickel' | 'bronze' | 'bimetal'
   description: string
+  heroWikipediaTitle?: string  // Wikipedia article title for representative photo
 }
 
 export interface Series {
@@ -25,9 +26,10 @@ export interface Series {
   diameter: string       // e.g. "17.9 mm"
   weight: string         // e.g. "2.50 g"
   designer: string
-  obverseHint: string    // text description of obverse for SVG
+  obverseHint: string
   reverseHint: string
-  numistaCategoryId?: string  // for live API lookups later
+  numistaCategoryId?: string
+  wikipediaTitle?: string  // Wikipedia article title for coin photo
 }
 
 export type Grade =

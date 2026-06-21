@@ -9,6 +9,7 @@ export const allSeries: Series[] = [
     composition: '88% Copper, 12% Nickel', diameter: '19.0 mm', weight: '4.67 g',
     designer: 'James B. Longacre',
     obverseHint: 'Eagle in flight left', reverseHint: 'Wreath around ONE CENT',
+    wikipediaTitle: 'Flying Eagle cent',
   },
   {
     id: 'us-cent-indian-head', denominationId: 'us-cent',
@@ -18,6 +19,7 @@ export const allSeries: Series[] = [
     diameter: '19.0 mm', weight: '3.11 g',
     designer: 'James B. Longacre',
     obverseHint: 'Lady Liberty in Indian headdress', reverseHint: 'Wreath & shield',
+    wikipediaTitle: 'Indian Head cent',
   },
   {
     id: 'us-cent-lincoln-wheat', denominationId: 'us-cent',
@@ -26,6 +28,7 @@ export const allSeries: Series[] = [
     composition: '95% Copper (1943: zinc-plated steel)', diameter: '19.1 mm', weight: '3.11 g',
     designer: 'Victor David Brenner',
     obverseHint: 'Lincoln portrait', reverseHint: 'Two wheat stalks flanking ONE CENT',
+    wikipediaTitle: 'Lincoln cent',
   },
   {
     id: 'us-cent-lincoln-memorial', denominationId: 'us-cent',
@@ -35,6 +38,7 @@ export const allSeries: Series[] = [
     diameter: '19.1 mm', weight: '3.11 g (2.50 g after 1982)',
     designer: 'Frank Gasparro (reverse)',
     obverseHint: 'Lincoln portrait', reverseHint: 'Lincoln Memorial building',
+    wikipediaTitle: 'Lincoln Memorial cent',
   },
   {
     id: 'us-cent-lincoln-shield', denominationId: 'us-cent',
@@ -43,6 +47,7 @@ export const allSeries: Series[] = [
     composition: '97.5% Zinc, 2.5% Copper', diameter: '19.1 mm', weight: '2.50 g',
     designer: 'Lyndall Bass (reverse)',
     obverseHint: 'Lincoln portrait', reverseHint: 'Union shield',
+    wikipediaTitle: 'Lincoln cent',
   },
 
   // ── US NICKEL ───────────────────────────────────────────────────
@@ -53,6 +58,7 @@ export const allSeries: Series[] = [
     composition: '75% Copper, 25% Nickel', diameter: '20.5 mm', weight: '5.00 g',
     designer: 'James B. Longacre',
     obverseHint: 'Shield and stars', reverseHint: 'Large 5 in circle of stars',
+    wikipediaTitle: 'Shield nickel',
   },
   {
     id: 'us-nickel-liberty-v', denominationId: 'us-nickel',
@@ -61,6 +67,7 @@ export const allSeries: Series[] = [
     composition: '75% Copper, 25% Nickel', diameter: '21.2 mm', weight: '5.00 g',
     designer: 'Charles E. Barber',
     obverseHint: 'Liberty head', reverseHint: 'Roman numeral V in wreath',
+    wikipediaTitle: 'Liberty nickel',
   },
   {
     id: 'us-nickel-buffalo', denominationId: 'us-nickel',
@@ -69,6 +76,7 @@ export const allSeries: Series[] = [
     composition: '75% Copper, 25% Nickel', diameter: '21.2 mm', weight: '5.00 g',
     designer: 'James Earle Fraser',
     obverseHint: 'Native American portrait', reverseHint: 'American bison on mound',
+    wikipediaTitle: 'Buffalo nickel',
   },
   {
     id: 'us-nickel-jefferson', denominationId: 'us-nickel',
@@ -78,6 +86,7 @@ export const allSeries: Series[] = [
     diameter: '21.2 mm', weight: '5.00 g',
     designer: 'Felix Schlag',
     obverseHint: 'Jefferson portrait', reverseHint: 'Monticello mansion',
+    wikipediaTitle: 'Jefferson nickel',
   },
 
   // ── US DIME ────────────────────────────────────────────────────
@@ -89,6 +98,7 @@ export const allSeries: Series[] = [
     designer: 'Charles E. Barber',
     obverseHint: 'Liberty head right', reverseHint: 'Wreath and ONE DIME',
     numistaCategoryId: '26714',
+    wikipediaTitle: 'Barber dime',
   },
   {
     id: 'us-dime-mercury', denominationId: 'us-dime',
@@ -98,6 +108,7 @@ export const allSeries: Series[] = [
     designer: 'Adolph A. Weinman',
     obverseHint: 'Liberty with winged cap left', reverseHint: 'Fasces with olive branch',
     numistaCategoryId: '26715',
+    wikipediaTitle: 'Mercury dime',
   },
   {
     id: 'us-dime-roosevelt', denominationId: 'us-dime',
@@ -108,6 +119,7 @@ export const allSeries: Series[] = [
     designer: 'John R. Sinnock',
     obverseHint: 'FDR portrait left', reverseHint: 'Torch, olive branch, oak branch',
     numistaCategoryId: '26716',
+    wikipediaTitle: 'Roosevelt dime',
   },
 
   // ── US QUARTER ─────────────────────────────────────────────────
@@ -118,6 +130,7 @@ export const allSeries: Series[] = [
     composition: '90% Silver, 10% Copper', diameter: '24.3 mm', weight: '6.25 g',
     designer: 'Charles E. Barber',
     obverseHint: 'Liberty head right', reverseHint: 'Eagle with shield',
+    wikipediaTitle: 'Barber quarter',
   },
   {
     id: 'us-quarter-standing-liberty', denominationId: 'us-quarter',
@@ -126,6 +139,7 @@ export const allSeries: Series[] = [
     composition: '90% Silver, 10% Copper', diameter: '24.3 mm', weight: '6.25 g',
     designer: 'Hermon Atkins MacNeil',
     obverseHint: 'Standing Liberty in armor', reverseHint: 'Eagle in flight',
+    wikipediaTitle: 'Standing Liberty quarter',
   },
   {
     id: 'us-quarter-washington', denominationId: 'us-quarter',
@@ -135,6 +149,7 @@ export const allSeries: Series[] = [
     diameter: '24.3 mm', weight: '6.25 g (5.67 g clad)',
     designer: 'John Flanagan',
     obverseHint: 'Washington portrait left', reverseHint: 'Eagle with olive branch',
+    wikipediaTitle: 'Washington quarter',
   },
   {
     id: 'us-quarter-state', denominationId: 'us-quarter',
@@ -143,6 +158,7 @@ export const allSeries: Series[] = [
     composition: '91.67% Cu / 8.33% Ni clad', diameter: '24.3 mm', weight: '5.67 g',
     designer: 'Various',
     obverseHint: 'Washington portrait', reverseHint: 'State-specific design',
+    wikipediaTitle: '50 State quarters',
   },
   {
     id: 'us-quarter-atb', denominationId: 'us-quarter',
@@ -151,6 +167,7 @@ export const allSeries: Series[] = [
     composition: '91.67% Cu / 8.33% Ni clad', diameter: '24.3 mm', weight: '5.67 g',
     designer: 'Various',
     obverseHint: 'Washington portrait', reverseHint: 'National park/site design',
+    wikipediaTitle: 'America the Beautiful quarters',
   },
   {
     id: 'us-quarter-women', denominationId: 'us-quarter',
@@ -159,6 +176,7 @@ export const allSeries: Series[] = [
     composition: '91.67% Cu / 8.33% Ni clad', diameter: '24.3 mm', weight: '5.67 g',
     designer: 'Various',
     obverseHint: 'Washington portrait', reverseHint: 'Portrait/symbol of honored woman',
+    wikipediaTitle: 'American Women Quarters program',
   },
 
   // ── US HALF DOLLAR ─────────────────────────────────────────────
@@ -169,6 +187,7 @@ export const allSeries: Series[] = [
     composition: '90% Silver, 10% Copper', diameter: '30.6 mm', weight: '12.50 g',
     designer: 'Charles E. Barber',
     obverseHint: 'Liberty head right', reverseHint: 'Heraldic eagle',
+    wikipediaTitle: 'Barber coinage',
   },
   {
     id: 'us-half-walking-liberty', denominationId: 'us-half',
@@ -177,6 +196,7 @@ export const allSeries: Series[] = [
     composition: '90% Silver, 10% Copper', diameter: '30.6 mm', weight: '12.50 g',
     designer: 'Adolph A. Weinman',
     obverseHint: 'Liberty walking toward sunrise', reverseHint: 'Eagle on mountain',
+    wikipediaTitle: 'Walking Liberty half dollar',
   },
   {
     id: 'us-half-franklin', denominationId: 'us-half',
@@ -185,6 +205,7 @@ export const allSeries: Series[] = [
     composition: '90% Silver, 10% Copper', diameter: '30.6 mm', weight: '12.50 g',
     designer: 'John R. Sinnock',
     obverseHint: 'Franklin portrait', reverseHint: 'Liberty Bell',
+    wikipediaTitle: 'Franklin half dollar',
   },
   {
     id: 'us-half-kennedy', denominationId: 'us-half',
@@ -194,6 +215,7 @@ export const allSeries: Series[] = [
     diameter: '30.6 mm', weight: '12.50 g',
     designer: 'Gilroy Roberts (obverse), Frank Gasparro (reverse)',
     obverseHint: 'JFK portrait', reverseHint: 'Presidential seal eagle',
+    wikipediaTitle: 'Kennedy half dollar',
   },
 
   // ── US DOLLAR ──────────────────────────────────────────────────
@@ -204,6 +226,7 @@ export const allSeries: Series[] = [
     composition: '90% Silver, 10% Copper', diameter: '38.1 mm', weight: '27.22 g',
     designer: 'William Barber',
     obverseHint: 'Seated Liberty', reverseHint: 'Eagle with trade dollar legend',
+    wikipediaTitle: 'Trade dollar (United States coin)',
   },
   {
     id: 'us-dollar-morgan', denominationId: 'us-dollar',
@@ -212,6 +235,7 @@ export const allSeries: Series[] = [
     composition: '90% Silver, 10% Copper', diameter: '38.1 mm', weight: '26.73 g',
     designer: 'George T. Morgan',
     obverseHint: 'Liberty head left with stars', reverseHint: 'Eagle with arrows and branch',
+    wikipediaTitle: 'Morgan dollar',
   },
   {
     id: 'us-dollar-peace', denominationId: 'us-dollar',
@@ -220,6 +244,7 @@ export const allSeries: Series[] = [
     composition: '90% Silver, 10% Copper', diameter: '38.1 mm', weight: '26.73 g',
     designer: 'Anthony de Francisci',
     obverseHint: 'Liberty head right radiant', reverseHint: 'Eagle perched on PEACE rock',
+    wikipediaTitle: 'Peace dollar',
   },
   {
     id: 'us-dollar-eisenhower', denominationId: 'us-dollar',
@@ -229,6 +254,7 @@ export const allSeries: Series[] = [
     diameter: '38.1 mm', weight: '22.68 g',
     designer: 'Frank Gasparro',
     obverseHint: 'Eisenhower portrait', reverseHint: 'Apollo 11 eagle on moon',
+    wikipediaTitle: 'Eisenhower dollar',
   },
   {
     id: 'us-dollar-sba', denominationId: 'us-dollar',
@@ -237,6 +263,7 @@ export const allSeries: Series[] = [
     composition: '91.67% Cu / 8.33% Ni', diameter: '26.5 mm', weight: '8.10 g',
     designer: 'Frank Gasparro',
     obverseHint: 'Susan B. Anthony portrait', reverseHint: 'Apollo 11 eagle',
+    wikipediaTitle: 'Susan B. Anthony dollar',
   },
   {
     id: 'us-dollar-sacagawea', denominationId: 'us-dollar',
@@ -245,6 +272,7 @@ export const allSeries: Series[] = [
     composition: '88.5% Cu / 6% Zn / 3.5% Mn / 2% Ni', diameter: '26.5 mm', weight: '8.10 g',
     designer: 'Glenna Goodacre (obverse)',
     obverseHint: 'Sacagawea with infant Jean-Baptiste', reverseHint: 'Soaring eagle (2000–08)',
+    wikipediaTitle: 'Sacagawea dollar',
   },
 
   // ── UK PENNY ───────────────────────────────────────────────────
@@ -255,6 +283,7 @@ export const allSeries: Series[] = [
     composition: '95% Copper, 4% Tin, 1% Zinc', diameter: '31.0 mm', weight: '9.45 g',
     designer: 'Leonard Charles Wyon / Thomas Brock',
     obverseHint: 'Victoria portrait', reverseHint: 'Britannia seated',
+    wikipediaTitle: 'Penny (British pre-decimal coin)',
   },
   {
     id: 'gb-penny-decimal', denominationId: 'gb-penny',
@@ -263,6 +292,7 @@ export const allSeries: Series[] = [
     composition: '97% Steel, copper-plated (from 1992)', diameter: '20.3 mm', weight: '3.56 g',
     designer: 'Arnold Machin (obverse)',
     obverseHint: 'Elizabeth II portrait', reverseHint: 'Portcullis',
+    wikipediaTitle: 'Penny (British decimal coin)',
   },
 
   // ── CANADA CENT ────────────────────────────────────────────────
@@ -273,6 +303,7 @@ export const allSeries: Series[] = [
     composition: '95% Copper', diameter: '25.5 mm', weight: '5.67 g',
     designer: 'Leonard Wyon',
     obverseHint: 'Victoria / Edward VII / George V portrait', reverseHint: 'CANADA ONE CENT maple',
+    wikipediaTitle: 'Canadian large cent',
   },
   {
     id: 'ca-cent-small', denominationId: 'ca-cent',
@@ -282,6 +313,7 @@ export const allSeries: Series[] = [
     diameter: '19.1 mm', weight: '2.50 g',
     designer: 'George Edward Kruger Gray (reverse)',
     obverseHint: 'Monarch portrait', reverseHint: 'Maple twig with TWO leaves',
+    wikipediaTitle: 'Canadian cent',
   },
 
   // ── AUSTRALIA DOLLAR ───────────────────────────────────────────
@@ -292,6 +324,7 @@ export const allSeries: Series[] = [
     composition: '92% Copper, 6% Aluminium, 2% Nickel', diameter: '25.0 mm', weight: '9.00 g',
     designer: 'Stuart Devlin',
     obverseHint: 'Elizabeth II / Charles III portrait', reverseHint: 'Five kangaroos',
+    wikipediaTitle: 'Australian one-dollar coin',
   },
 
   // ── MEXICO PESO ────────────────────────────────────────────────
@@ -302,6 +335,7 @@ export const allSeries: Series[] = [
     composition: '90.3% Silver', diameter: '39.0 mm', weight: '27.07 g',
     designer: 'Mint engravers',
     obverseHint: 'Phrygian cap with rays', reverseHint: 'Eagle on cactus with snake',
+    wikipediaTitle: 'Mexican peso',
   },
   {
     id: 'mx-peso-caballito', denominationId: 'mx-peso',
@@ -310,6 +344,7 @@ export const allSeries: Series[] = [
     composition: '90.3% Silver', diameter: '39.5 mm', weight: '27.07 g',
     designer: 'Charles Pillet',
     obverseHint: 'Lady Liberty on horse', reverseHint: 'Eagle on cactus',
+    wikipediaTitle: 'Caballito peso',
   },
 
   // ── JAPAN ──────────────────────────────────────────────────────
@@ -320,6 +355,7 @@ export const allSeries: Series[] = [
     composition: '100% Aluminum', diameter: '20.0 mm', weight: '1.00 g',
     designer: 'Mint Bureau of Japan',
     obverseHint: 'Young tree (sapling)', reverseHint: '1 with lines',
+    wikipediaTitle: 'Japanese yen',
   },
   {
     id: 'jp-yen500-bimetal', denominationId: 'jp-yen500',
@@ -329,5 +365,6 @@ export const allSeries: Series[] = [
     diameter: '26.5 mm', weight: '7.10 g',
     designer: 'Mint Bureau of Japan',
     obverseHint: 'Paulownia flower 500', reverseHint: 'Bamboo and mandarin orange',
+    wikipediaTitle: '500 yen coin',
   },
 ]

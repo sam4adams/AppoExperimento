@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import Header from '../components/Header'
-import CoinSvg from '../components/CoinSvg'
+import CoinImage from '../components/CoinImage'
 import { getCountries, getDenominations } from '../services/numista'
 import type { Country, Denomination } from '../types'
 
@@ -41,10 +41,14 @@ export default function DenominationList() {
                 className="flex flex-col items-center gap-3 bg-navy-800 hover:bg-navy-700
                   active:bg-navy-600 rounded-2xl p-4 transition-colors border border-white/5"
               >
-                <CoinSvg denomination={denom} size={100} />
+                <CoinImage
+                  wikipediaTitle={denom.heroWikipediaTitle}
+                  denomination={denom}
+                  size={110}
+                />
                 <div className="text-center">
                   <span className="text-white font-semibold text-sm block">{denom.name}</span>
-                  <span className="text-white/50 text-xs mt-0.5 block">{denom.description.slice(0, 45)}…</span>
+                  <span className="text-gold-400 text-xs font-medium">{denom.valueLabel}</span>
                 </div>
               </button>
             ))}

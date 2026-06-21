@@ -9,7 +9,7 @@ export const allSeries: Series[] = [
     composition: '88% Copper, 12% Nickel', diameter: '19.0 mm', weight: '4.67 g',
     designer: 'James B. Longacre',
     obverseHint: 'Eagle in flight left', reverseHint: 'Wreath around ONE CENT',
-    wikipediaTitle: 'Flying Eagle cent',
+    wikipediaTitle: 'Flying Eagle cent coin',
   },
   {
     id: 'us-cent-indian-head', denominationId: 'us-cent',
@@ -19,7 +19,7 @@ export const allSeries: Series[] = [
     diameter: '19.0 mm', weight: '3.11 g',
     designer: 'James B. Longacre',
     obverseHint: 'Lady Liberty in Indian headdress', reverseHint: 'Wreath & shield',
-    wikipediaTitle: 'Indian Head cent',
+    wikipediaTitle: 'Indian Head penny cent',
   },
   {
     id: 'us-cent-lincoln-wheat', denominationId: 'us-cent',
@@ -76,7 +76,7 @@ export const allSeries: Series[] = [
     composition: '75% Copper, 25% Nickel', diameter: '21.2 mm', weight: '5.00 g',
     designer: 'James Earle Fraser',
     obverseHint: 'Native American portrait', reverseHint: 'American bison on mound',
-    wikipediaTitle: 'Buffalo nickel',
+    wikipediaTitle: 'Buffalo Indian Head nickel',
   },
   {
     id: 'us-nickel-jefferson', denominationId: 'us-nickel',

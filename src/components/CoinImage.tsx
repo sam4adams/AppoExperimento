@@ -40,7 +40,7 @@ export default function CoinImage({ wikipediaTitle, denomination, size = 100, cl
         <img
           src={imageUrl}
           alt={denomination.name}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
           loading="lazy"
         />
       </div>

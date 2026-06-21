@@ -6,13 +6,13 @@ export const denominations: Denomination[] = [
     id: 'us-cent', countryId: 'us', name: 'Cent', valueLabel: '1¢',
     metalColor: 'copper',
     description: 'The smallest US denomination, featuring Lincoln since 1909.',
-    heroWikipediaTitle: 'Indian Head cent',
+    heroWikipediaTitle: 'Lincoln cent wheat',
   },
   {
     id: 'us-nickel', countryId: 'us', name: 'Nickel', valueLabel: '5¢',
     metalColor: 'nickel',
     description: 'Five-cent piece, 75% copper / 25% nickel alloy.',
-    heroWikipediaTitle: 'Buffalo nickel',
+    heroWikipediaTitle: 'Buffalo Indian Head nickel',
   },
   {
     id: 'us-dime', countryId: 'us', name: 'Dime', valueLabel: '10¢',

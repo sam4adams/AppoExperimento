@@ -2,10 +2,10 @@ import { useWikipediaImage } from '../hooks/useWikipediaImage'
 import CoinSvg from './CoinSvg'
 import type { Denomination } from '../types'
 
-const BORDER_COLOR: Record<Denomination['metalColor'], string> = {
+const RING: Record<Denomination['metalColor'], string> = {
   gold:    'ring-yellow-500',
   silver:  'ring-slate-300',
-  copper:  'ring-orange-600',
+  copper:  'ring-orange-500',
   nickel:  'ring-slate-400',
   bronze:  'ring-orange-700',
   bimetal: 'ring-yellow-400',
@@ -20,12 +20,12 @@ interface Props {
 
 export default function CoinImage({ wikipediaTitle, denomination, size = 100, className = '' }: Props) {
   const { imageUrl, loading } = useWikipediaImage(wikipediaTitle)
-  const ring = BORDER_COLOR[denomination.metalColor]
+  const ring = RING[denomination.metalColor]
 
   if (loading) {
     return (
       <div
-        className={`rounded-full bg-navy-700 animate-pulse flex-shrink-0 ${className}`}
+        className={`rounded-full bg-navy-800 animate-pulse flex-shrink-0 ${className}`}
         style={{ width: size, height: size }}
       />
     )
@@ -34,14 +34,19 @@ export default function CoinImage({ wikipediaTitle, denomination, size = 100, cl
   if (imageUrl) {
     return (
       <div
-        className={`rounded-full overflow-hidden ring-2 ${ring} flex-shrink-0 shadow-lg ${className}`}
-        style={{ width: size, height: size }}
+        className={`relative rounded-full overflow-hidden ring-2 ${ring} flex-shrink-0 shadow-xl ${className}`}
+        style={{ width: size, height: size, backgroundColor: '#0a0f1a' }}
       >
         <img
           src={imageUrl}
           alt={denomination.name}
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover object-center"
           loading="lazy"
+        />
+        {/* Inset vignette — darkens the edges so any white background disappears */}
+        <div
+          className="absolute inset-0 rounded-full pointer-events-none"
+          style={{ boxShadow: 'inset 0 0 28px 12px rgba(8, 12, 24, 0.88)' }}
         />
       </div>
     )

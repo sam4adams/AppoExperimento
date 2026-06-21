@@ -6,13 +6,13 @@ export const denominations: Denomination[] = [
     id: 'us-cent', countryId: 'us', name: 'Cent', valueLabel: '1¢',
     metalColor: 'copper',
     description: 'The smallest US denomination, featuring Lincoln since 1909.',
-    heroWikipediaTitle: 'Lincoln wheat cent',
+    heroWikipediaTitle: 'Lincoln cent wheat',
   },
   {
     id: 'us-nickel', countryId: 'us', name: 'Nickel', valueLabel: '5¢',
     metalColor: 'nickel',
     description: 'Five-cent piece, 75% copper / 25% nickel alloy.',
-    heroWikipediaTitle: 'Buffalo nickel',
+    heroWikipediaTitle: 'Buffalo nickel Indian Head',
   },
   {
     id: 'us-dime', countryId: 'us', name: 'Dime', valueLabel: '10¢',
@@ -44,19 +44,19 @@ export const denominations: Denomination[] = [
     id: 'gb-farthing', countryId: 'gb', name: 'Farthing', valueLabel: '¼d',
     metalColor: 'copper',
     description: 'Quarter of a penny, last minted in 1956.',
-    heroWikipediaTitle: 'Farthing British coin',
+    heroWikipediaTitle: 'British farthing coin',
   },
   {
     id: 'gb-halfpenny', countryId: 'gb', name: 'Halfpenny', valueLabel: '½d',
     metalColor: 'bronze',
     description: 'Half penny bronze coin, demonetised 1984.',
-    heroWikipediaTitle: 'British halfpenny coin',
+    heroWikipediaTitle: 'British halfpenny pre-decimal',
   },
   {
     id: 'gb-penny', countryId: 'gb', name: 'Penny', valueLabel: '1p',
     metalColor: 'copper',
     description: 'British penny, pre-decimal and decimal series.',
-    heroWikipediaTitle: 'British penny Victorian',
+    heroWikipediaTitle: 'British penny Victoria',
   },
   {
     id: 'gb-shilling', countryId: 'gb', name: 'Shilling', valueLabel: '1/-',
@@ -68,13 +68,13 @@ export const denominations: Denomination[] = [
     id: 'gb-crown', countryId: 'gb', name: 'Crown', valueLabel: '5/-',
     metalColor: 'silver',
     description: 'Five-shilling commemorative coin, now 25p / £5.',
-    heroWikipediaTitle: 'British crown coin silver',
+    heroWikipediaTitle: 'British crown coin',
   },
   {
     id: 'gb-pound', countryId: 'gb', name: 'Pound', valueLabel: '£1',
     metalColor: 'gold',
     description: 'Sovereign and modern pound coins.',
-    heroWikipediaTitle: 'British gold sovereign',
+    heroWikipediaTitle: 'British gold sovereign coin',
   },
 
   // ── Canada ──────────────────────────────────────────────────────
@@ -82,37 +82,37 @@ export const denominations: Denomination[] = [
     id: 'ca-cent', countryId: 'ca', name: 'Cent', valueLabel: '1¢',
     metalColor: 'copper',
     description: 'Canadian penny, discontinued 2013.',
-    heroWikipediaTitle: 'Canadian cent',
+    heroWikipediaTitle: 'Canadian cent penny',
   },
   {
     id: 'ca-nickel', countryId: 'ca', name: 'Nickel', valueLabel: '5¢',
     metalColor: 'nickel',
     description: 'Five-cent piece; pure nickel in wartime.',
-    heroWikipediaTitle: 'Canadian five cent coin',
+    heroWikipediaTitle: 'Canadian five cent nickel',
   },
   {
     id: 'ca-dime', countryId: 'ca', name: 'Dime', valueLabel: '10¢',
     metalColor: 'silver',
     description: 'Bluenose schooner reverse. Silver through 1967.',
-    heroWikipediaTitle: 'Canadian dime',
+    heroWikipediaTitle: 'Canadian dime ten cent',
   },
   {
     id: 'ca-quarter', countryId: 'ca', name: 'Quarter', valueLabel: '25¢',
     metalColor: 'silver',
     description: 'Caribou reverse since 1937. Silver through 1967.',
-    heroWikipediaTitle: 'Canadian quarter',
+    heroWikipediaTitle: 'Canadian quarter caribou',
   },
   {
     id: 'ca-loonie', countryId: 'ca', name: 'Loonie (Dollar)', valueLabel: '$1',
     metalColor: 'gold',
     description: 'Common Loon reverse since 1987.',
-    heroWikipediaTitle: 'Canadian loonie dollar',
+    heroWikipediaTitle: 'Canadian loonie one dollar',
   },
   {
     id: 'ca-toonie', countryId: 'ca', name: 'Toonie (Two Dollar)', valueLabel: '$2',
     metalColor: 'bimetal',
     description: 'Bimetallic coin with polar bear, introduced 1996.',
-    heroWikipediaTitle: 'Canadian toonie',
+    heroWikipediaTitle: 'Canadian toonie two dollar',
   },
 
   // ── Australia ────────────────────────────────────────────────────
@@ -132,13 +132,13 @@ export const denominations: Denomination[] = [
     id: 'au-5cent', countryId: 'au', name: 'Five Cents', valueLabel: '5¢',
     metalColor: 'silver',
     description: 'Echidna reverse.',
-    heroWikipediaTitle: 'Australian five cent coin',
+    heroWikipediaTitle: 'Australian five cent coin echidna',
   },
   {
     id: 'au-10cent', countryId: 'au', name: 'Ten Cents', valueLabel: '10¢',
     metalColor: 'silver',
     description: 'Superb Lyrebird reverse.',
-    heroWikipediaTitle: 'Australian ten cent coin',
+    heroWikipediaTitle: 'Australian ten cent coin lyrebird',
   },
   {
     id: 'au-50cent', countryId: 'au', name: 'Fifty Cents', valueLabel: '50¢',
@@ -150,7 +150,7 @@ export const denominations: Denomination[] = [
     id: 'au-dollar', countryId: 'au', name: 'Dollar', valueLabel: '$1',
     metalColor: 'gold',
     description: 'Five kangaroos reverse, introduced 1984.',
-    heroWikipediaTitle: 'Australian dollar coin',
+    heroWikipediaTitle: 'Australian dollar coin kangaroo',
   },
 
   // ── Germany ──────────────────────────────────────────────────────
@@ -178,7 +178,7 @@ export const denominations: Denomination[] = [
     id: 'fr-franc', countryId: 'fr', name: 'Franc', valueLabel: '1 Fr',
     metalColor: 'silver',
     description: 'French franc, replaced by the Euro in 2002.',
-    heroWikipediaTitle: 'French franc coin',
+    heroWikipediaTitle: 'French franc Marianne coin',
   },
 
   // ── Mexico ──────────────────────────────────────────────────────
@@ -192,7 +192,7 @@ export const denominations: Denomination[] = [
     id: 'mx-peso', countryId: 'mx', name: 'Peso', valueLabel: '$1',
     metalColor: 'silver',
     description: 'Mexican peso from silver 8-reales era to modern coins.',
-    heroWikipediaTitle: 'Mexican peso silver coin',
+    heroWikipediaTitle: 'Mexican peso silver',
   },
 
   // ── Japan ──────────────────────────────────────────────────────

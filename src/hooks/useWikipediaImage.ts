@@ -3,31 +3,26 @@ import { useState, useEffect } from 'react'
 const cache = new Map<string, string | null>()
 
 async function fetchObverseImage(coinName: string): Promise<string | null> {
-  // Search Commons for "{coin} uncirculated obverse", fall back to just "{coin} obverse"
-  for (const query of [
-    `${coinName} uncirculated obverse`,
-    `${coinName} obverse`,
-  ]) {
-    try {
-      const params = new URLSearchParams({
-        action: 'query',
-        list: 'search',
-        srsearch: query,
-        srnamespace: '6',
-        srlimit: '5',
-        format: 'json',
-        origin: '*',
-      })
-      const res = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`)
-      const data = await res.json() as { query?: { search?: Array<{ title: string }> } }
-      const results = data.query?.search ?? []
-      const best = results.find(r => r.title.toLowerCase().includes('obverse')) ?? results[0]
-      if (best) {
-        const filename = best.title.replace('File:', '').replace(/ /g, '_')
-        return `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(filename)}?width=400`
-      }
-    } catch { /* try next query */ }
-  }
+  // Search Wikimedia Commons for "{coin} obverse" — simple, proven reliable
+  try {
+    const params = new URLSearchParams({
+      action: 'query',
+      list: 'search',
+      srsearch: `${coinName} obverse`,
+      srnamespace: '6',
+      srlimit: '5',
+      format: 'json',
+      origin: '*',
+    })
+    const res = await fetch(`https://commons.wikimedia.org/w/api.php?${params}`)
+    const data = await res.json() as { query?: { search?: Array<{ title: string }> } }
+    const results = data.query?.search ?? []
+    const best = results.find(r => r.title.toLowerCase().includes('obverse')) ?? results[0]
+    if (best) {
+      const filename = best.title.replace('File:', '').replace(/ /g, '_')
+      return `https://commons.wikimedia.org/wiki/Special:FilePath/${filename}?width=400`
+    }
+  } catch { /* fall through */ }
 
   // Fall back to Wikipedia article thumbnail
   try {

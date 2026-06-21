@@ -11,6 +11,16 @@ const RING: Record<Denomination['metalColor'], string> = {
   bimetal: 'ring-yellow-400',
 }
 
+// Background fills any white/light areas in coin photos with a matching metal tone
+const BG: Record<Denomination['metalColor'], string> = {
+  gold:    '#7a5c10',
+  silver:  '#7a8a9a',
+  copper:  '#7a3a10',
+  nickel:  '#5a6370',
+  bronze:  '#6a4015',
+  bimetal: '#7a6a10',
+}
+
 interface Props {
   wikipediaTitle: string | undefined
   denomination: Denomination
@@ -21,12 +31,13 @@ interface Props {
 export default function CoinImage({ wikipediaTitle, denomination, size = 100, className = '' }: Props) {
   const { imageUrl, loading } = useWikipediaImage(wikipediaTitle)
   const ring = RING[denomination.metalColor]
+  const bg   = BG[denomination.metalColor]
 
   if (loading) {
     return (
       <div
-        className={`rounded-full bg-navy-800 animate-pulse flex-shrink-0 ${className}`}
-        style={{ width: size, height: size }}
+        className={`rounded-full animate-pulse flex-shrink-0 ${className}`}
+        style={{ width: size, height: size, backgroundColor: bg }}
       />
     )
   }
@@ -34,19 +45,14 @@ export default function CoinImage({ wikipediaTitle, denomination, size = 100, cl
   if (imageUrl) {
     return (
       <div
-        className={`relative rounded-full overflow-hidden ring-2 ${ring} flex-shrink-0 shadow-xl ${className}`}
-        style={{ width: size, height: size, backgroundColor: '#0a0f1a' }}
+        className={`rounded-full overflow-hidden ring-2 ${ring} flex-shrink-0 shadow-lg ${className}`}
+        style={{ width: size, height: size, backgroundColor: bg }}
       >
         <img
           src={imageUrl}
           alt={denomination.name}
           className="w-full h-full object-cover object-center"
           loading="lazy"
-        />
-        {/* Gentle edge vignette to blend white-background photos into dark border */}
-        <div
-          className="absolute inset-0 rounded-full pointer-events-none"
-          style={{ boxShadow: 'inset 0 0 10px 4px rgba(0, 0, 0, 0.45)' }}
         />
       </div>
     )

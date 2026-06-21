@@ -43,10 +43,10 @@ export default function CoinImage({ wikipediaTitle, denomination, size = 100, cl
           className="w-full h-full object-cover object-center"
           loading="lazy"
         />
-        {/* Inset vignette — darkens the edges so any white background disappears */}
+        {/* Gentle edge vignette to blend white-background photos into dark border */}
         <div
           className="absolute inset-0 rounded-full pointer-events-none"
-          style={{ boxShadow: 'inset 0 0 28px 12px rgba(8, 12, 24, 0.88)' }}
+          style={{ boxShadow: 'inset 0 0 10px 4px rgba(0, 0, 0, 0.45)' }}
         />
       </div>
     )

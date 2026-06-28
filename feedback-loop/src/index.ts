@@ -1,22 +1,27 @@
 /**
- * Custom AI Feedback Loop
+ * Custom AI Feedback Loop with Token-Aware Context Compression
  *
- * How it works:
- *  1. User asks a question
- *  2. Claude answers — but first, its system prompt is enriched with
- *     highly-rated (4–5 star) past Q&A examples from feedback-memory.json
- *  3. User rates the response 1–5
- *  4. Rating + exchange are stored; 4+ examples feed future prompts
+ * Two feedback loops working together:
  *
- * This is "in-context learning via human feedback" — the model doesn't
- * retrain, but it sees what kinds of answers you liked and mirrors them.
+ *  Loop 1 — Quality feedback:
+ *    User rates each response 1–5. High-rated (4+) Q&A pairs are saved to
+ *    feedback-memory.md and injected as few-shot examples in future prompts.
+ *    The model mirrors the style/depth of answers you liked.
+ *
+ *  Loop 2 — Token pressure feedback:
+ *    Running token usage is tracked across the conversation. When it crosses
+ *    TOKEN_THRESHOLD, the full history is compressed into a summary that
+ *    preserves key context — biased toward topics the user rated highly.
+ *    Conversation continues without hitting the context limit.
  */
 
 import Anthropic from '@anthropic-ai/sdk'
 import * as readline from 'readline'
 import { saveEntry, getTopExamples, summarizeMemory } from './memory.js'
+import { Conversation } from './conversation.js'
 
 const client = new Anthropic()  // reads ANTHROPIC_API_KEY from env
+const conversation = new Conversation()
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 const ask = (prompt: string): Promise<string> =>
@@ -24,11 +29,9 @@ const ask = (prompt: string): Promise<string> =>
 
 function buildSystemPrompt(): string {
   const examples = getTopExamples(5)
-
   let system = `You are a helpful assistant. Be concise and clear.`
-
   if (examples.length > 0) {
-    system += `\n\nThe user has previously rated these responses highly — use them as style and quality guidance:\n`
+    system += `\n\nThe user has previously rated these responses highly — mirror their style and depth:\n`
     examples.forEach((ex, i) => {
       system += `\n--- Example ${i + 1} (rated ${ex.rating}/5) ---`
       system += `\nUser: ${ex.userMessage}`
@@ -36,29 +39,32 @@ function buildSystemPrompt(): string {
     })
     system += `\n\nMatch the tone, depth, and format of those highly-rated responses.`
   }
-
   return system
 }
 
 async function chat(userMessage: string): Promise<string> {
+  conversation.addUser(userMessage)
+
   const response = await client.messages.create({
-    model: 'claude-haiku-4-5-20251001',  // fast + cheap for a demo loop
+    model: 'claude-haiku-4-5-20251001',
     max_tokens: 1024,
     system: buildSystemPrompt(),
-    messages: [{ role: 'user', content: userMessage }],
+    messages: conversation.history,
   })
 
   const block = response.content[0]
-  return block.type === 'text' ? block.text : ''
+  const text = block.type === 'text' ? block.text : ''
+  conversation.addAssistant(text, response.usage)
+  return text
 }
 
 async function main() {
-  console.log('\n╔══════════════════════════════════════╗')
-  console.log('║     AI Custom Feedback Loop Demo     ║')
-  console.log('╚══════════════════════════════════════╝')
-  console.log('Ask anything. Rate each response 1–5.')
-  console.log('High-rated answers become few-shot examples for future queries.')
-  console.log('Type "stats" to see memory summary. Type "exit" to quit.\n')
+  console.log('\n╔════════════════════════════════════════════╗')
+  console.log('║   AI Feedback Loop + Context Compression   ║')
+  console.log('╚════════════════════════════════════════════╝')
+  console.log('Ask anything. Rate responses 1–5 to train future answers.')
+  console.log('Context auto-compresses when token usage gets high.')
+  console.log('Type "stats" for memory summary. Type "exit" to quit.\n')
   console.log(`Memory: ${summarizeMemory()}\n`)
 
   while (true) {
@@ -66,13 +72,23 @@ async function main() {
     if (!userMessage) continue
     if (userMessage.toLowerCase() === 'exit') break
     if (userMessage.toLowerCase() === 'stats') {
-      console.log(`\nMemory: ${summarizeMemory()}\n`)
+      console.log(`\nMemory:  ${summarizeMemory()}`)
+      console.log(`Tokens:  ${conversation.tokenCount} used | compressions: ${conversation.compressionsDone}\n`)
       continue
+    }
+
+    // Check token pressure BEFORE sending — compress if needed
+    if (conversation.shouldCompress()) {
+      console.log('\n⟳ Token threshold reached — compressing conversation history…')
+      const summary = await conversation.compress(client)
+      console.log(`  Summary: ${summary.slice(0, 120)}…`)
+      console.log(`  Tokens reset to ~${conversation.tokenCount}\n`)
     }
 
     console.log('\nThinking…')
     const response = await chat(userMessage)
-    console.log(`\nAssistant: ${response}\n`)
+    console.log(`\nAssistant: ${response}`)
+    console.log(`\n[tokens used this session: ${conversation.tokenCount}]`)
 
     const ratingStr = (await ask('Rate this response (1–5, or Enter to skip): ')).trim()
     if (ratingStr) {
@@ -85,7 +101,7 @@ async function main() {
           timestamp: new Date().toISOString(),
         })
         const msg = rating >= 4
-          ? '✓ Stored as a high-quality example — will influence future responses.'
+          ? '✓ Saved to feedback-memory.md — will shape future responses.'
           : '✓ Noted. Low-rated responses are tracked but not used as examples.'
         console.log(msg)
       }
@@ -93,7 +109,7 @@ async function main() {
     console.log()
   }
 
-  console.log('\nGoodbye! Memory saved to feedback-memory.json')
+  console.log('\nGoodbye! Feedback saved to feedback-memory.md')
   rl.close()
 }
 
